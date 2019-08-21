@@ -1,0 +1,7 @@
+#!/usr/bin/with-contenv ash
+
+echo "Updating SickChill"
+cd /app
+git pull
+echo "Starting SickChill"
+exec s6-setuidgid abc /usr/bin/python /app/SickBeard.py -q --nolaunch --datadir=/config --port 8081
