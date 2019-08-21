@@ -4,4 +4,5 @@ echo "Updating SickChill"
 cd /app
 git pull
 echo "Starting SickChill"
+chown -R abc /app
 exec s6-setuidgid abc /usr/bin/python /app/SickBeard.py -q --nolaunch --datadir=/config --port 8081
