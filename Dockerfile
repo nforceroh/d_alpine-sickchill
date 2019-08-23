@@ -1,4 +1,5 @@
-FROM nforceroh/d_alpine-s6:latest
+FROM nforceroh/d_alpine-s6:v3.10
+
 
 LABEL maintainer="sylvain@nforcer.com"
 
@@ -12,10 +13,8 @@ RUN \
   && git clone --depth 1 https://github.com/SickChill/SickChill.git /app
 
 COPY rootfs/ /
-
 WORKDIR /app
-
 VOLUME /config
-
 EXPOSE 8081
-
+ENTRYPOINT [ "/init" ]
+#CMD /bin/bash

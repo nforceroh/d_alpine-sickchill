@@ -1,4 +1,3 @@
-#!/usr/bin/with-contenv ash
-
-echo "Starting SickChill"
-exec s6-setuidgid abc /usr/bin/python /app/SickBeard.py -q --nolaunch --datadir=/config --port 8081
+#!/usr/bin/with-contenv bash
+echo "STARTING SERVICE: sickchill"
+/bin/s6-setuidgid abc /app/SickBeard.py --datadir=/config --port 8081 2>&1
