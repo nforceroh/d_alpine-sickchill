@@ -1,4 +1,4 @@
-FROM nforceroh/d_alpine-s6:v3.10
+FROM nforceroh/d_alpine-s6:edge
 
 
 LABEL maintainer="sylvain@nforcer.com"
