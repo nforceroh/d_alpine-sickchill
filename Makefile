@@ -5,8 +5,13 @@ IMG_NAME := d_alpine-sickchill
 IMG_REPO := nforceroh
 VERSION := $(shell cat .tag )
 
-.PHONY: all build push gitcommit gitpush
-all: build push gitcommit gitpush
+.PHONY: context all build push gitcommit gitpush
+all: context build push 
+git: context gitcommit gitpush
+
+context: 
+	@echo "Switching docker context to default"
+	docker context use default
 
 build:
 	$(eval VERSION=$(shell curl --silent "https://api.github.com/repos/SickChill/SickChill/tags" |jq --raw-output '.[0].name' ) )
